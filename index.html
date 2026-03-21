@@ -360,13 +360,53 @@
         </div>
       </li>
 
-      <li class="musica-item">
-        <span class="numero">II</span>
-        <div class="musica-info">
-          <p class="musica-titulo">Hino a Joinville</p>
-          <p class="musica-compositor">Arranjo de <em>Jairo B. Espíndula</em></p>
-        </div>
-      </li>
+<li class="musica-item" style="flex-direction: column; align-items: flex-start; gap: 0;">
+  <div style="display:flex; align-items:flex-start; gap:14px; width:100%;">
+    <span class="numero">II</span>
+    <div class="musica-info">
+      <p class="musica-titulo">Hino a Joinville</p>
+      <p class="musica-compositor">Arranjo de <em>Jairo B. Espíndula</em></p>
+    </div>
+    <button onclick="this.closest('li').querySelector('.letra').classList.toggle('aberta')"
+      style="background:none; border:1px solid rgba(201,168,76,0.4); color:#c9a84c; border-radius:4px; padding:3px 10px; font-size:11px; cursor:pointer; white-space:nowrap; margin-top:2px; font-family:'Montserrat',sans-serif; letter-spacing:1px;">
+      ♪ letra
+    </button>
+  </div>
+  <div class="letra" style="max-height:0; overflow:hidden; transition:max-height 0.5s ease, opacity 0.4s ease; opacity:0; width:100%; padding-left:36px;">
+    <div style="padding: 14px 0 4px; border-top: 1px solid rgba(201,168,76,0.15); margin-top:12px;">
+      <p style="font-family:'Cormorant Garamond',serif; font-size:13px; color:rgba(245,240,232,0.75); line-height:2; font-style:italic;">
+        Tu és a glória dos teus fundadores,<br/>
+        És monumento aos teus colonizadores,<br/>
+        Oh! Joinville Cidade dos Príncipes,<br/>
+        Oh! Joinville Cidade das Flores.<br/><br/>
+        Às margens do Rio Cachoeira,<br/>
+        Um dia o audaz pioneiro,<br/>
+        Plantou do trabalho a bandeira<br/>
+        E se deu, corpo e alma, ao torrão brasileiro.<br/><br/>
+        Depois foram lutas e penas,<br/>
+        Mas nunca o herói fraquejou,<br/>
+        Com sangue, suor e com lágrimas<br/>
+        Do seu próprio corpo teu solo irrigou.<br/><br/>
+        Tu és a glória dos teus fundadores,<br/>
+        És monumento aos teus colonizadores,<br/>
+        Oh! Joinville Cidade dos Príncipes,<br/>
+        Oh! Joinville Cidade das Flores.<br/><br/>
+        E se hoje o bravo imigrante,<br/>
+        Que tua semente plantou,<br/>
+        Com a força e o vigor de um gigante<br/>
+        Nas mãos com que, em preces, ao céu suplicou,<br/><br/>
+        Te visse radiosa e pujante,<br/>
+        Nascida na mata hostil,<br/>
+        A imagem da Pátria distante<br/>
+        Veria, grandiosa, exaltando o Brasil!
+      </p>
+    </div>
+  </div>
+</li>
+
+<style>
+  .letra.aberta { max-height: 800px !important; opacity: 1 !important; }
+</style>
 
       <li class="musica-item">
         <span class="numero">III</span>
