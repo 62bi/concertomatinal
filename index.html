@@ -515,5 +515,31 @@ Lutaremos sem temor!
     <p class="footer-motto">"O Nosso Batalhão"</p>
   </footer>
 
+
+
+
+
+  <script>
+  const hoje = new Date();
+  const concerto = new Date(2026, 2, 24); // mês começa em 0, então 2 = março
+  const diaDepois = new Date(2026, 2, 25);
+
+  const eHoje = hoje >= concerto && hoje < diaDepois;
+
+  if (!eHoje) {
+    document.body.innerHTML = `
+      <div style="min-height:100vh; background:#1a3a1f; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:40px; font-family:'Montserrat',sans-serif;">
+        <p style="font-size:11px; letter-spacing:4px; color:#c9a84c; text-transform:uppercase; margin-bottom:16px;">Banda de Música · 62º BI</p>
+        <h1 style="font-family:'Playfair Display',serif; color:white; font-size:2rem; margin-bottom:8px;">Concerto Matinal</h1>
+        <p style="color:rgba(245,240,232,0.5); font-size:13px; margin-bottom:40px;">Joinville, Santa Catarina</p>
+        <div style="border:1px solid rgba(201,168,76,0.3); border-radius:8px; padding:32px 40px;">
+          <p style="color:rgba(245,240,232,0.6); font-size:11px; letter-spacing:3px; text-transform:uppercase; margin-bottom:12px;">Próximo concerto</p>
+          <p style="font-family:'Playfair Display',serif; color:#c9a84c; font-size:1.8rem;">24 de Maio de 2026</p>
+          <p style="color:rgba(245,240,232,0.4); font-size:12px; margin-top:8px;">Às 10h30 · R. Min. Calógeras, 1200</p>
+        </div>
+        <p style="color:rgba(245,240,232,0.2); font-size:11px; margin-top:48px; font-style:italic;">"O Nosso Batalhão"</p>
+      </div>`;
+  }
+</script>
 </body>
 </html>
