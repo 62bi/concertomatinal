@@ -521,14 +521,15 @@ Lutaremos sem temor!
 
   <script>
   const hoje = new Date();
-  const concerto = new Date(2026, 2, 24); // mês começa em 0, então 2 = março
-  const diaDepois = new Date(2026, 2, 25);
+  const concerto = new Date(2026, 2, 21); // mês começa em 0, então 2 = março
+  const diaDepois = new Date(2026, 2, 22);
 
   const eHoje = hoje >= concerto && hoje < diaDepois;
 
   if (!eHoje) {
     document.body.innerHTML = `
-      <div style="min-height:100vh; background:#1a3a1f; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:40px; font-family:'Montserrat',sans-serif;">
+      <div style="min-height:100vh; background:#1a3a1f; display:flex; flex-direction:column; align-items:center; 
+      justify-content:center; text-align:center; padding:40px; font-family:'Montserrat',sans-serif;">
        
         <header class="hero">
     <!-- Substitua "brasao.png" pelo nome do seu arquivo -->
