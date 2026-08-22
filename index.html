@@ -330,7 +330,7 @@
     <p class="hero-subtitle">Joinville, Santa Catarina</p>
 
     <div class="hero-info">
-      <p class="hero-date">26 de Julho de 2026</p>
+      <p class="hero-date">23 de Agosto de 2026</p>
       <p class="hero-time">Às 10h30</p>
       <p class="hero-local">R. Min. Calógeras, 1200 · Atiradores · Entrada franca</p>
     </div>
@@ -352,62 +352,74 @@
 
     <ol class="musicas">
 
+Sim. Mantendo exatamente o mesmo padrão e corrigindo apenas a padronização dos créditos:
+
+```html
 <li class="musica-item">
   <span class="numero">I</span>
   <div class="musica-info">
-    <p class="musica-titulo">In The Stone</p>
-    <p class="musica-compositor">Composição de Maurice White, Allee Willis e David Foster · Arranjo do <em>Sgt Paulo</em></p>
+    <p class="musica-titulo">Can't Take My Eyes Off You</p>
+    <p class="musica-compositor">Composição de Bob Crewe e Bob Gaudio · Interpretação de Frankie Valli · Adaptação para Banda de Música de <em>Edmael Santos</em></p>
   </div>
 </li>
+
 <li class="musica-item">
   <span class="numero">II</span>
   <div class="musica-info">
-    <p class="musica-titulo">What a Feeling</p>
-    <p class="musica-compositor">Composição de Keith Forsey e Irene Cara · Arranjo do <em>Ten Ernani</em></p>
+    <p class="musica-titulo">Davi no Choro</p>
+    <p class="musica-compositor">Composição e arranjo para Banda Sinfônica de <em>Bia Paes Leme</em></p>
   </div>
 </li>
+
 <li class="musica-item">
   <span class="numero">III</span>
   <div class="musica-info">
-    <p class="musica-titulo">Cheia de Charme</p>
-    <p class="musica-compositor">Composição de Guilherme Arantes · Arranjo de <em>Odair L. Nascimento</em></p>
+    <p class="musica-titulo">Pequena Serenata Noturna</p>
+    <p class="musica-compositor">Composição de <em>Wolfgang Amadeus Mozart</em></p>
   </div>
 </li>
+
 <li class="musica-item">
   <span class="numero">IV</span>
   <div class="musica-info">
-    <p class="musica-titulo">Seu Balancê</p>
-    <p class="musica-compositor">Composição de Zeca Pagodinho · Arranjo de <em>Ed Santana</em></p>
+    <p class="musica-titulo">What a Wonderful World</p>
+    <p class="musica-compositor">Composição de Bob Thiele e George David Weiss · Interpretada por Louis Armstrong · Arranjo para Banda de Concerto de <em>Heinz Briegel</em></p>
   </div>
 </li>
+
 <li class="musica-item">
   <span class="numero">V</span>
   <div class="musica-info">
-    <p class="musica-titulo">Libertango</p>
-    <p class="musica-compositor">Composição de Astor Piazzolla · Arranjo de <em>Paul Murtha</em></p>
+    <p class="musica-titulo">Against All Odds</p>
+    <p class="musica-compositor">Composição de Phil Collins · Arranjo de <em>David Stout</em> · Adaptação para Banda de Música de <em>Dico</em></p>
   </div>
 </li>
+
 <li class="musica-item">
   <span class="numero">VI</span>
   <div class="musica-info">
-    <p class="musica-titulo">One Moment in Time</p>
-    <p class="musica-compositor">Composição de Albert Hammond e John Bettis · Interpretada por Whitney Houston · Arranjo de <em>Markus Götz</em></p>
+    <p class="musica-titulo">Meu Querido, Meu Velho, Meu Amigo</p>
+    <p class="musica-compositor">Composição de Roberto Carlos e Erasmo Carlos · Arranjo para Banda de Música de <em>Manoel Ferreira Lima</em></p>
   </div>
 </li>
+
 <li class="musica-item">
   <span class="numero">VII</span>
   <div class="musica-info">
-    <p class="musica-titulo">Eu Sou o Samba</p>
-    <p class="musica-compositor">Composição de Alexandre Pires · Arranjo de <em>Jean Gonçalves</em></p>
+    <p class="musica-titulo">Coisa que o Lua Canta</p>
+    <p class="musica-compositor">Pout-Pourri de Luiz Gonzaga · Arranjo de <em>Wilson Ferreira</em></p>
   </div>
 </li>
+
 <li class="musica-item">
   <span class="numero">VIII</span>
   <div class="musica-info">
-    <p class="musica-titulo">Capitão América</p>
-    <p class="musica-compositor">Composição de Alan Silvestri · Arranjo de <em>Michael Brown</em> · Adaptação do <em>Sgt Paulo</em></p>
+    <p class="musica-titulo">Canção do Exército</p>
+    <p class="musica-compositor">Música de Teófilo Dolor Monteiro de Magalhães · Letra de Alberto Augusto Martins</p>
   </div>
 </li>
+
+
 
 
 <style>
@@ -437,8 +449,8 @@
 
   <script>
   const hoje = new Date();
-  const concerto = new Date(2026, 6, 26); // mês começa em 0, então 2 = março
-  const diaDepois = new Date(2026, 6, 27);
+  const concerto = new Date(2026, 7, 23); // mês começa em 0, então 2 = março
+  const diaDepois = new Date(2026, 7, 24);
 
   const eHoje = hoje >= concerto && hoje < diaDepois;
 
@@ -456,7 +468,7 @@
         <p style="color:rgba(245,240,232,0.5); font-size:13px; margin-bottom:40px;">Joinville, Santa Catarina</p>
         <div style="border:1px solid rgba(201,168,76,0.3); border-radius:8px; padding:32px 40px;">
           <p style="color:rgba(245,240,232,0.6); font-size:11px; letter-spacing:3px; text-transform:uppercase; margin-bottom:12px;">Próximo concerto</p>
-          <p style="font-family:'Playfair Display',serif; color:#c9a84c; font-size:1.5rem;">23 de Agosto de 2026</p>
+          <p style="font-family:'Playfair Display',serif; color:#c9a84c; font-size:1.5rem;">27 de Setembro de 2026</p>
           <p style="color:rgba(245,240,232,0.4); font-size:12px; margin-top:8px;">Às 10h30 · R. Min. Calógeras, 1200</p>
         </div>
         <p style="color:rgba(245,240,232,0.2); font-size:11px; margin-top:48px; font-style:italic;">"O Nosso Batalhão"</p>
