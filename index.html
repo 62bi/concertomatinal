@@ -446,28 +446,70 @@
 
 
   <script>
+  // ═══════════ CONFIGURAÇÃO ═══════════
+  // Concerto é sempre no 4º domingo do mês.
+  // Se algum mês for diferente, coloque aqui:
+  //   'ANO-MÊS': 'ANO-MÊS-DIA'   → concerto em outro dia
+  //   'ANO-MÊS': null            → não tem concerto nesse mês
+  const EXCECOES = {
+    // '2026-11': '2026-11-29',
+    // '2027-01': null,
+  };
+  const HORARIO = 'Às 10h30';
+  const LOCAL = 'R. Min. Calógeras, 1200';
+  // ════════════════════════════════════
+
+  const MESES = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho',
+                 'Agosto','Setembro','Outubro','Novembro','Dezembro'];
+
+  function quartoDomingo(ano, mes) {
+    const primeiro = new Date(ano, mes, 1);
+    const ateODomingo = (7 - primeiro.getDay()) % 7;
+    return new Date(ano, mes, 1 + ateODomingo + 21);
+  }
+
+  function concertoDoMes(ano, mes) {
+    const chave = ano + '-' + String(mes + 1).padStart(2, '0');
+    if (chave in EXCECOES) {
+      if (EXCECOES[chave] === null) return null;
+      const [a, m, d] = EXCECOES[chave].split('-').map(Number);
+      return new Date(a, m - 1, d);
+    }
+    return quartoDomingo(ano, mes);
+  }
+
+  function proximoConcerto(hoje) {
+    const inicioDeHoje = new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate());
+    for (let i = 0; i < 13; i++) {
+      const total = hoje.getMonth() + i;
+      const data = concertoDoMes(hoje.getFullYear() + Math.floor(total / 12), total % 12);
+      if (data && data >= inicioDeHoje) return data;
+    }
+    return null;
+  }
+
+  const formatar = d => `${d.getDate()} de ${MESES[d.getMonth()]} de ${d.getFullYear()}`;
+
   const hoje = new Date();
-  const concerto = new Date(2026, 7, 23); // mês começa em 0, então 2 = março
-  const diaDepois = new Date(2026, 7, 24);
+  const concerto = proximoConcerto(hoje);
+  const eHoje = concerto && concerto.toDateString() === hoje.toDateString();
 
-  const eHoje = hoje >= concerto && hoje < diaDepois;
-
-  if (!eHoje) {
+  if (eHoje) {
+    const campoData = document.querySelector('.hero-date');
+    if (campoData) campoData.textContent = formatar(concerto);
+  } else {
+    const textoData = concerto ? formatar(concerto) : 'Em breve';
     document.body.innerHTML = `
-      <div style="min-height:100vh; background:#1a3a1f; display:flex; flex-direction:column; align-items:center; 
+      <div style="min-height:100vh; background:#1a3a1f; display:flex; flex-direction:column; align-items:center;
       justify-content:center; text-align:center; padding:40px; font-family:'Montserrat',sans-serif;">
-       
-        <header class="hero">
-    <!-- Substitua "brasao.png" pelo nome do seu arquivo -->
-    <img class="brasao" src="logo.png" alt="Brasão 62º BI" />
-    
-    <p style="font-size:11px; letter-spacing:4px; color:#c9a84c; text-transform:uppercase; margin-bottom:16px;">Banda de Música · 62º BI</p>
+        <img class="brasao" src="logo.png" alt="Brasão 62º BI" />
+        <p style="font-size:11px; letter-spacing:4px; color:#c9a84c; text-transform:uppercase; margin-bottom:16px;">Banda de Música · 62º BI</p>
         <h1 style="font-family:'Playfair Display',serif; color:white; font-size:2rem; margin-bottom:8px;">Concerto Matinal</h1>
         <p style="color:rgba(245,240,232,0.5); font-size:13px; margin-bottom:40px;">Joinville, Santa Catarina</p>
         <div style="border:1px solid rgba(201,168,76,0.3); border-radius:8px; padding:32px 40px;">
           <p style="color:rgba(245,240,232,0.6); font-size:11px; letter-spacing:3px; text-transform:uppercase; margin-bottom:12px;">Próximo concerto</p>
-          <p style="font-family:'Playfair Display',serif; color:#c9a84c; font-size:1.5rem;">27 de Setembro de 2026</p>
-          <p style="color:rgba(245,240,232,0.4); font-size:12px; margin-top:8px;">Às 10h30 · R. Min. Calógeras, 1200</p>
+          <p style="font-family:'Playfair Display',serif; color:#c9a84c; font-size:1.5rem;">${textoData}</p>
+          <p style="color:rgba(245,240,232,0.4); font-size:12px; margin-top:8px;">${HORARIO} · ${LOCAL}</p>
         </div>
         <p style="color:rgba(245,240,232,0.2); font-size:11px; margin-top:48px; font-style:italic;">"O Nosso Batalhão"</p>
       </div>`;
